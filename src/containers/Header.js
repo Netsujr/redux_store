@@ -14,7 +14,7 @@ const Header = () => {
         <Link to="/cart">
           <h3>Cart</h3>
           <img
-            src="https://image.flaticon.com/icons/svg/102/102276.svg"
+            src="https://www.svgrepo.com/show/80543/shopping-cart-outline.svg"
             alt="shopping cart"
           />
           {/* <div>{cartCount}</div> */}
@@ -32,4 +32,9 @@ const CONTAINER = styled.div`
   align-items: center;
   margin: 10px 20px;
   border: 1px solid black;
+
+  img {
+    width: 30px;
+    height: 30px;
+  }
   `;
