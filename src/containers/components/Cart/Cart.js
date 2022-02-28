@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import CartItem from "./CartItem/CartItem";
 const Cart = ({ cart }) => {
@@ -32,9 +33,11 @@ const Cart = ({ cart }) => {
           <span>TOTAL: ({totalItems} items)</span>
           <span>$ {totalPrice}</span>
         </Price>
-        <button>
-          Proceed To Checkout
-        </button>
+        <Link to='/thanks' style={{minWidth: '100%', display: 'contents'}}>
+          <button>
+            Proceed To Checkout
+          </button>
+        </Link>
       </CartSummary>
     </CartContainer>
   );
@@ -55,22 +58,22 @@ const CartContainer = styled.div`
     justify-content: space-between;
     /* border: 1px solid red; */
 
-      p:nth-child(1) {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: var(--secondary-color);
-  }
+    p:nth-child(1) {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--secondary-color);
+    }
 
-  p:nth-child(2) {
-    font-size: 1rem;
-    color: var(--secondary-color);
-  }
+    p:nth-child(2) {
+      font-size: 1rem;
+      color: var(--secondary-color);
+    }
 
-  p:nth-child(3) {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: var(--secondary-color);
-  }
+    p:nth-child(3) {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--secondary-color);
+    }
 
     button {
       padding: 10px 17px;
