@@ -37,7 +37,7 @@ const CartItem = ({ item, adjustQty, removeFromCart }) => {
         </CartItemQTY>
         <button
           onClick={() => removeFromCart(item.id)}
-          // {itemBtn}
+        // {itemBtn}
         >
           <img
             src="https://image.flaticon.com/icons/svg/709/709519.svg"
@@ -57,3 +57,24 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(null, mapDispatchToProps)(CartItem);
+
+const CartItemContainer = styled.div`
+  margin-bottom: 1rem;
+  display: flex;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border-radius: 10px;
+
+  img {
+    width: 350px;
+    object-fit: contain;
+    border-radius: 10px;
+  }
+  `;
+
+const CartItemDetails = styled.div`
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--secondary-color);
+  `
