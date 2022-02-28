@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 const Product = () => {
   const products = useSelector(state => state.allProducts.products);
-  const { id, title  } = products[0];
+  // const { id, title  } = products[0];
   console.log(products);
 
   return (
@@ -12,7 +12,7 @@ const Product = () => {
         <div className='card'>
           <div className='image'></div>
           <div className='content'>
-            <div className='header'>{title}</div>
+            {/* <div className='header'>{title}</div> */}
           </div>
         </div>
       </div>
