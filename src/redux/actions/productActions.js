@@ -16,23 +16,27 @@ export const removeSelectedProduct = () => {
   };
 };
 
-export const removeFromCart = (productId) => {
+export const removeFromCart = (itemID) => {
   return {
     type: ActionTypes.REMOVE_FROM_CART,
-    payload: productId,
+    payload: {
+      id: itemID
+    }
   };
 };
 
-export const updateCart = (product) => {
+export const updateCart = (itemID, value) => {
   return {
     type: ActionTypes.UPDATE_CART_QTY,
-    payload: product,
+    payload: { id: itemID, qty: value },
   };
 }
 
-export const addToCart = (product) => {
+export const addToCart = (itemID) => {
   return {
     type: ActionTypes.ADD_TO_CART,
-    payload: product,
+    payload: {
+      id: itemID
+    }
   };
 }
