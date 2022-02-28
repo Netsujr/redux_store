@@ -1,51 +1,19 @@
+import { ActionTypes } from "../constants/action-types";
+
 const initialState = {
-  products: [{
-    id: 1,
-    title: 'Redux',
-    category: 'Books',
-  }],
+  products: [
+    {
+      id: 1,
+      title: 'Product 1',
+      description: 'This is product 1',
+    },
+  ],
 };
 
-export const productReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case 'SET_PRODUCTS':
-      return action.payload;
-    case 'SELECTED_PRODUCT':
-      return state.map((product) => {
-        if (product.id === action.payload.id) {
-          return {
-            ...product,
-            selected: true,
-          };
-        }
-        return {
-          ...product,
-          selected: false,
-        };
-      });
-    case 'REMOVE_SELECTED_PRODUCT':
-      return state.map((product) => {
-        if (product.id === action.payload.id) {
-          return {
-            ...product,
-            selected: false,
-          };
-        }
-        return {
-          ...product,
-          selected: false,
-        };
-      });
-    case 'EDIT_PRODUCT':
-      return state.map((product) => {
-        if (product.id === action.payload.id) {
-          return {
-            ...product,
-            ...action.payload,
-          };
-        }
-        return product;
-      });
+export const productReducer = (state = initialState, { type, payload }) => {
+  switch (type) {
+    case ActionTypes.SET_PRODUCTS:
+      return state;
     default:
       return state;
   }

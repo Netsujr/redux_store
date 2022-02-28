@@ -2,8 +2,9 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 const Product = () => {
-  const products = [useSelector(state => state)];
-  const { id, title, price, image } = products;
+  const products = [useSelector(state => state.allProducts.products)];
+  const { id, title, price, image } = products[0];
+  console.log(products);
 
   return (
     <div className='four column wide'>
@@ -11,7 +12,7 @@ const Product = () => {
         <div className='card'>
           <div className='image'></div>
           <div className='content'>
-            <div className='header'></div>
+            <div className='header'>{title}</div>
           </div>
         </div>
       </div>
