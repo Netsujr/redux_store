@@ -1,7 +1,6 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import {  useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { deleteProduct } from '../../redux/actions/productActions';
 
 const Product = () => {
   const products = useSelector(state => state.allProducts.products);
