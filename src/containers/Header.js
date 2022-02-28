@@ -20,17 +20,24 @@ const Header = ({ cart }) => {
       <Link to="/">
         <h3>Renato's Store</h3>
       </Link>
-      <Link to="/cart">
-        <HeaderCart>
-          <img
-            src="https://www.svgrepo.com/show/80543/shopping-cart-outline.svg"
-            alt="shopping cart"
-          />
-          <h3>Cart</h3>
-          <CartCounter>{cartCount}</CartCounter>
-        </HeaderCart>
-      </Link>
-    </HeaderContainer>
+      <HeaderRight>
+        <NewItemContainer
+        onCLick={() => {}}
+        >
+          <h3>Add Item</h3>
+        </NewItemContainer>
+        <Link to="/cart">
+          <HeaderCart>
+            <img
+              src="https://www.svgrepo.com/show/80543/shopping-cart-outline.svg"
+              alt="shopping cart"
+            />
+            <h3>Cart</h3>
+            <CartCounter>{cartCount}</CartCounter>
+          </HeaderCart>
+        </Link>
+      </HeaderRight>
+    </HeaderContainer >
   );
 };
 
@@ -71,7 +78,7 @@ const HeaderCart = styled.div`
   padding: 0.5rem;
   cursor: pointer;
 
-  &::hover {
+  &:hover {
     opacity: 0.75;
   }
 
@@ -101,4 +108,36 @@ const CartCounter = styled.div`
   justify-content: center;
   align-items: center;
   /* border: 1px solid pink; */
+  `;
+
+const HeaderRight = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  `;
+
+const NewItemContainer = styled.div`
+  background: #fff;
+  width: 100px;
+  border: none;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  cursor: pointer;
+  margin-right: 1rem;
+
+  &:hover {
+    opacity: 0.75;
+  }
+
+  h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: auto;
+    color: var(--dark-color);
+  }
+
   `;
