@@ -1,17 +1,16 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import Product from "./Product/Product";
 
-const Products = ({ products }) => {
-
+const Products = () => {
+  const products = useSelector(state => state.store.products);
+  console.log(products);
 
 
   return (
     <ProductsContainer>
-      {products.map((product) => (
-        <Product key={product.id} product={product} />
-      ))}
+      <Product key={products.id} products={products} />
     </ProductsContainer>
   );
 };
@@ -25,9 +24,9 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps)(Products);
 
 const ProductsContainer = styled.div`
-    width: 100%;
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    `;
+  width: 100%;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  `;
