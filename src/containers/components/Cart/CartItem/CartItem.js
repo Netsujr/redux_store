@@ -39,8 +39,8 @@ const CartItem = ({ item, adjustQty, removeFromCart }) => {
         // {itemBtn}
         >
           <img
-            src="https://image.flaticon.com/icons/svg/709/709519.svg"
-            alt=""
+            src="https://freesvg.org/img/trash.png"
+            alt="trash"
           />
         </button>
       </CartItemActions>
@@ -67,6 +67,9 @@ const CartItemContainer = styled.div`
     width: 50px;
     height: 50px;
     border: 1px solid var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 50%;
     cursor: pointer;
     transition: all ease-in-out 0.7s;
@@ -78,11 +81,10 @@ const CartItemContainer = styled.div`
     }
 
     img {
-      width: 25px;
-      height: 25px;
+      width: 35px;
+      height: 35px;
     }
   }
-
 
   img {
     width: 350px;

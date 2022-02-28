@@ -55,12 +55,29 @@ const CartContainer = styled.div`
     justify-content: space-between;
     /* border: 1px solid red; */
 
+      p:nth-child(1) {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+  }
+
+  p:nth-child(2) {
+    font-size: 1rem;
+    color: var(--secondary-color);
+  }
+
+  p:nth-child(3) {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+  }
+
     button {
       padding: 10px 17px;
       border: 1px solid var(--secondary-color);
       border-radius: 10px;
       background: var(--primary-color);
-      color: var(--light-color);
+      color: white;
       font-size: 1.2rem;
       font-weight: bold;
       cursor: pointer;
