@@ -66,24 +66,17 @@ const Details = styled.div`
   justify-content: space-between;
 
   &:nth-child(1) {
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  &:nth-child(2) {
     font-size: 0.8rem;
     font-weight: bold;
     color: var(--secondary-color);
   }
 
-  &:nth-child(3) {
+  &:nth-child(2) {
     font-size: 0.85rem;
     color: var(--secondary-color);
   }
 
-  &:nth-child(4) {
+  &:nth-child(3) {
     font-size: 1.2rem;
     font-weight: bold;
     color: var(--secondary-color);
@@ -108,5 +101,16 @@ const Buttons = styled.div`
     &:hover {
       opacity: 0.75;
     }
+
+    &:nth-child(1) {
+      background: var(--light-color);
+      color: var(--secondary-color);
+    }
+
+    &:nth-child(2) {
+      background: var(--secondary-color);
+      color: var(--light-color);
+    }
+
   }
   `;
