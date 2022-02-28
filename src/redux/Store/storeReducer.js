@@ -6,7 +6,7 @@ const INITIAL_STATE = {
   currentPruduct: null,
 };
 
-const shopReducer = (state = INITIAL_STATE, {type, payload}) => {
+const shopReducer = (state = INITIAL_STATE, { type, payload }) => {
   switch (type) {
     case actionTypes.ADD_TO_CART:
       const product = state.products.find(
@@ -28,22 +28,28 @@ const shopReducer = (state = INITIAL_STATE, {type, payload}) => {
       };
 
     case actionTypes.UPDATE_CURRENT_PRODUCT:
-      const currentProduct = state.products.find(
-        (product) => product.id === payload.id
+      const currentProduct = state.products.map(
+        (product) => product.id === payload.id ?
+          {
+            ...state,
+            title: payload.title,
+            description: payload.description,
+            price: payload.price,
+          } : product
       );
       return {
         ...state,
         currentProduct,
       };
 
-      case actionTypes.DELETE_PRODUCT:
-        const NewProducts = state.products.filter(
-          (product) => product.id !== payload.id
-        );
-        return {
-          ...state,
-          products: NewProducts,
-        };
+    case actionTypes.DELETE_PRODUCT:
+      const NewProducts = state.products.filter(
+        (product) => product.id !== payload.id
+      );
+      return {
+        ...state,
+        products: NewProducts,
+      };
 
 
     case actionTypes.REMOVE_FROM_CART:
@@ -66,17 +72,17 @@ const shopReducer = (state = INITIAL_STATE, {type, payload}) => {
         currentProduct: payload,
       };
 
-      case actionTypes.LOAD_ALL_PRODUCTS:
-        return {
-          ...state,
-          products: payload,
-        };
+    case actionTypes.LOAD_ALL_PRODUCTS:
+      return {
+        ...state,
+        products: payload,
+      };
 
-        case actionTypes.CREATE_PRODUCT:
-          return {
-            ...state,
-            products: [...state.products, payload],
-          };
+    case actionTypes.CREATE_PRODUCT:
+      return {
+        ...state,
+        products: [...state.products, payload],
+      };
 
     default:
       return state;
