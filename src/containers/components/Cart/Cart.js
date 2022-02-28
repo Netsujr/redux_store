@@ -20,23 +20,23 @@ const Cart = ({ cart }) => {
   }, [cart, totalPrice, totalItems, setTotalPrice, setTotalItems]);
 
   return (
-    <div >
-      <div >
+    <CartContainer>
+      <CartItems>
         {cart.map((item) => (
           <CartItem key={item.id} item={item} />
         ))}
-      </div>
-      <div >
-        <h4 > >Cart Summary</h4>
-        <div >
+      </CartItems>
+      <CartSummary>
+        <h4>Cart Summary</h4>
+        <Price>
           <span>TOTAL: ({totalItems} items)</span>
           <span>$ {totalPrice}</span>
-        </div>
-        <button >
+        </Price>
+        <button>
           Proceed To Checkout
         </button>
-      </div>
-    </div>
+      </CartSummary>
+    </CartContainer>
   );
 };
 
@@ -47,3 +47,12 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps)(Cart);
+
+const CartContainer = styled.div`
+`;
+
+const CartItems = styled.div`
+`;
+
+const CartSummary = styled.div`
+`;
