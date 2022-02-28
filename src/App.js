@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import Header from "./containers/Header";
 import Products from "./containers/components/Products/ProductList";
 import Cart from "./containers/components/Cart/Cart";
+import ThankYou from "./containers/components/ThankYou";
 import SingleProduct from "./containers/components/SingleProduct/SingleProduct";
 
 function App({ current }) {
@@ -17,6 +18,7 @@ function App({ current }) {
           <Route exact path="/" element={<Products/>} />
           <Route exact path="/cart" element={<Cart/>} />
           <Route exact path="/product/:id" element={<SingleProduct/>} />
+          <Route exact path="/thanks" element={<ThankYou/>} />
         </Routes>
       </div>
     </Router>
@@ -25,7 +27,7 @@ function App({ current }) {
 
 const mapStateToProps = (state) => {
   return {
-    current: state.store.currentItem,
+    current: state.store.currentProduct,
   };
 };
 
