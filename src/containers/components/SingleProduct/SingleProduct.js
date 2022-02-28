@@ -21,8 +21,8 @@ const SingleItem = ({ current, addToCart }) => {
           onClick={() => addToCart(current.id)}
         >Add To Cart
         </button>
+        <Link style={{color: 'green', fontWeight: 'bold', fontSize: '20px'}} to="/">Back</Link>
       </ItemDetails>
-        <Link style={{color: 'green', fontWeight: 'bold', fontSize: '14px'}} to="/">Home</Link>
     </ItemContainer>
   );
 };
@@ -47,11 +47,12 @@ const ItemContainer = styled.div`
   display: flex;
 
   img {
-    width: 600px;
+    height: 400px;
     object-fit: contain;
     margin-right: 1rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
     border-radius: 10px;
+    padding: 2rem;
   }
   `;
 

@@ -99,7 +99,7 @@ const Buttons = styled.div`
       padding: 0.5rem;
       border: 1px solid var(--secondary-color);
       border-radius: 10px;
-      font-size: 0.65rem;
+      font-size: 1rem;
       font-weight: bold;
       cursor: pointer;
       margin: 1rem 0;

@@ -35,9 +35,7 @@ const CartItem = ({ item, adjustQty, removeFromCart }) => {
           />
         </CartItemQTY>
         <button
-          onClick={() => removeFromCart(item.id)}
-        // {itemBtn}
-        >
+          onClick={() => removeFromCart(item.id)}>
           <img
             src="https://freesvg.org/img/trash.png"
             alt="trash"
@@ -81,15 +79,16 @@ const CartItemContainer = styled.div`
     }
 
     img {
-      width: 35px;
-      height: 35px;
+      width: 15px;
+      height: 15px;
     }
   }
 
   img {
-    width: 350px;
+    width: 150px;
     object-fit: contain;
     border-radius: 10px;
+    padding: 2rem;
   }
   `;
 
