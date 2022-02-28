@@ -10,29 +10,29 @@ export const selectedProduct = (product) => ({
   payload: product,
 });
 
-export const editProduct = (products) => {
-  return {
-    type: ActionTypes.EDIT_PRODUCT,
-    payload: products,
-  };
-};
-
 export const removeSelectedProduct = () => {
   return {
     type: ActionTypes.REMOVE_SELECTED_PRODUCT,
   };
 };
 
-export const addNewProduct = (product) => {
+export const deleteProduct = (id) => {
   return {
-    type: ActionTypes.ADD_NEW_PRODUCT,
-    payload: product,
+    type: ActionTypes.DELETE_PRODUCT,
+    payload: id,
   };
 };
 
-export const deleteProduct = (product) => {
+export const updateProduct = (product) => {
   return {
-    type: ActionTypes.DELETE_PRODUCT,
+    type: ActionTypes.UPDATE_PRODUCT,
     payload: product,
   };
-};
+}
+
+export const createProduct = (product) => {
+  return {
+    type: ActionTypes.CREATE_PRODUCT,
+    payload: product,
+  };
+}

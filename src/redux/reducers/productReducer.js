@@ -24,6 +24,30 @@ export const selectedProductReducer = (state = {}, { type, payload }) => {
   }
 };
 
-export const addProductToCartReducer = (state = [], {type, payload}) => {
 
+export const createProduct = (state = {}, { type, payload }) => {
+  switch (type) {
+    case ActionTypes.CREATE_PRODUCT:
+      return { ...state, products: [...state.products, payload] };
+    default:
+      return state;
+  }
+};
+
+export const updateProduct = (state = {}, { type, payload }) => {
+  switch (type) {
+    case ActionTypes.UPDATE_PRODUCT:
+      return { ...state, products: state.products.map(product => product.id === payload.id ? payload : product) };
+    default:
+      return state;
+  }
+};
+
+export const deleteProduct = (state = {}, { type, payload }) => {
+  switch (type) {
+    case ActionTypes.DELETE_PRODUCT:
+      return { ...state, products: state.products.filter(product => product.id !== payload) };
+    default:
+      return state;
+  }
 };

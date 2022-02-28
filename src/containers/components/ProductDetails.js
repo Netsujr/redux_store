@@ -9,8 +9,6 @@ const ProductDetails = () => {
   const product = useSelector((state) => state.product);
   const { image, title, price, category, description } = product;
   const dispatch = useDispatch();
-  console.log(product);
-  console.log(productId);
 
   const fetchProductDetail = async () => {
     const response = await axios
@@ -27,6 +25,8 @@ const ProductDetails = () => {
       dispatch(removeSelectedProduct());
     }
   }, [productId]);
+
+
 
   return (
     <div className="ui grid container">
@@ -45,6 +45,7 @@ const ProductDetails = () => {
                 <h2>
                   <h5 className="ui teal tag label">${price}</h5>
                 </h2>
+                <button onClick={'clicked'}>delete</button>
                 <h3 className="ui brown block header">{category}</h3>
                 <p>{description}</p>
               </div>
