@@ -13,3 +13,16 @@ export const selectedProduct = (product) => {
     payload: product,
   };
 };
+
+export const editProdcut = (product) => {
+  return {
+    type: ActionTypes.EDIT_PRODUCT,
+    payload: product,
+  };
+};
+
+// export const removeSelectedProduct = () => {
+//   return {
+//     type: ActionTypes.REMOVE_SELECTED_PRODUCT,
+//   };
+// };

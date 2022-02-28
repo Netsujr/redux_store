@@ -1,5 +1,9 @@
 const initialState = {
-  products: [],
+  products: [{
+    id: 1,
+    title: 'Redux',
+    category: 'Books',
+  }],
 };
 
 export const productReducer = (state = [], action) => {
