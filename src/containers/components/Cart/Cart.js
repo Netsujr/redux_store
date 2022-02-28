@@ -2,35 +2,35 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import CartItem from "./CartItem/CartItem";
+import CartProduct from "./CartProduct/CartProduct";
 const Cart = ({ cart }) => {
   const [totalPrice, setTotalPrice] = useState(0);
-  const [totalItems, setTotalItems] = useState(0);
+  const [totalProducts, setTotalProducts] = useState(0);
 
   useEffect(() => {
     let items = 0;
     let price = 0;
 
-    cart.forEach((item) => {
-      items += item.qty;
-      price += item.qty * item.price;
+    cart.forEach((product) => {
+      items += product.qty;
+      price += product.qty * product.price;
     });
 
-    setTotalItems(items);
+    setTotalProducts(items);
     setTotalPrice(price);
-  }, [cart, totalPrice, totalItems, setTotalPrice, setTotalItems]);
+  }, [cart, totalPrice, totalProducts, setTotalPrice, setTotalProducts]);
 
   return (
     <CartContainer>
-      <CartItems>
-        {cart.map((item) => (
-          <CartItem key={item.id} item={item} />
+      <CartProducts>
+        {cart.map((product) => (
+          <CartProduct key={product.id} product={product} />
         ))}
-      </CartItems>
+      </CartProducts>
       <CartSummary>
         <h4>Cart Summary</h4>
         <Price>
-          <span>TOTAL: ({totalItems} items)</span>
+          <span>TOTAL: ({totalProducts} items)</span>
           <span>$ {totalPrice}</span>
         </Price>
         <Link to='/thanks' style={{minWidth: '100%', display: 'contents'}}>
@@ -96,7 +96,7 @@ const CartContainer = styled.div`
     }
     `;
 
-const CartItems = styled.div`
+const CartProducts = styled.div`
     flex: 0.7;
     margin-right: 1rem;
     /* border: 1px solid pink; */

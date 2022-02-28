@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { connect, useDispatch, useSelector } from "react-redux";
 import Product from "./Product/Product";
 import axios from "axios";
-import { loadAllItems } from "../../../redux/Store/storeActions";
+import { loadAllProducts } from "../../../redux/Store/storeActions";
 
 const Products = () => {
   const products = useSelector(state => state.store.products);
@@ -15,7 +15,7 @@ const Products = () => {
       .catch(error => {
         console.log(error);
       });
-    dispatch(loadAllItems((response.data)));
+    dispatch(loadAllProducts((response.data)));
   };
 
   useEffect(() => {

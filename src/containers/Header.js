@@ -8,8 +8,8 @@ const Header = ({ cart }) => {
 
   useEffect(() => {
     let count = 0;
-    cart.forEach((item) => {
-      count += item.qty;
+    cart.forEach((product) => {
+      count += product.qty;
     });
 
     setCartCount(count);
@@ -21,11 +21,11 @@ const Header = ({ cart }) => {
         <h3>Renato's Store</h3>
       </Link>
       <HeaderRight>
-        <NewItemContainer
+        <NewProductContainer
         onCLick={() => {}}
         >
-          <h3>Add Item</h3>
-        </NewItemContainer>
+          <h3>Add Product</h3>
+        </NewProductContainer>
         <Link to="/cart">
           <HeaderCart>
             <img
@@ -117,15 +117,15 @@ const HeaderRight = styled.div`
 
   `;
 
-const NewItemContainer = styled.div`
+const NewProductContainer = styled.div`
   background: #fff;
-  width: 100px;
+  width: fit-content;
   border: none;
   border-radius: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.5rem;
+  padding: 1rem;
   cursor: pointer;
   margin-right: 1rem;
 

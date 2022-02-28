@@ -1,29 +1,29 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { adjustItemQty, removeFromCart } from "../../../../redux/Store/storeActions";
+import { adjustProductQty, removeFromCart } from "../../../../redux/Store/storeActions";
 import styled from "styled-components";
 
-const CartItem = ({ item, adjustQty, removeFromCart }) => {
-  const [input, setInput] = useState(item.qty);
+const CartProduct = ({ product, adjustQty, removeFromCart }) => {
+  const [input, setInput] = useState(product.qty);
 
   const onChangeHandler = (event) => {
     setInput(event.target.value);
-    adjustQty(item.id, event.target.value);
+    adjustQty(product.id, event.target.value);
   };
 
   return (
-    <CartItemContainer>
+    <CartProductContainer>
       <img
-        src={item.image}
-        alt={item.title}
+        src={product.image}
+        alt={product.title}
       />
-      <CartItemDetails>
-        <p> {item.title}</p>
-        <p> {item.description}</p>
-        <p> $ {item.price}</p>
-      </CartItemDetails>
-      <CartItemActions>
-        <CartItemQTY>
+      <CartProductDetails>
+        <p> {product.title}</p>
+        <p> {product.description}</p>
+        <p> $ {product.price}</p>
+      </CartProductDetails>
+      <CartProductActions>
+        <CartProductQTY>
           <label htmlFor="qty">Qty</label>
           <input
             min="1"
@@ -33,29 +33,29 @@ const CartItem = ({ item, adjustQty, removeFromCart }) => {
             value={input}
             onChange={onChangeHandler}
           />
-        </CartItemQTY>
+        </CartProductQTY>
         <button
-          onClick={() => removeFromCart(item.id)}>
+          onClick={() => removeFromCart(product.id)}>
           <img
             src="https://freesvg.org/img/trash.png"
             alt="trash"
           />
         </button>
-      </CartItemActions>
-    </CartItemContainer>
+      </CartProductActions>
+    </CartProductContainer>
   );
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    adjustQty: (id, value) => dispatch(adjustItemQty(id, value)),
+    adjustQty: (id, value) => dispatch(adjustProductQty(id, value)),
     removeFromCart: (id) => dispatch(removeFromCart(id)),
   };
 };
 
-export default connect(null, mapDispatchToProps)(CartItem);
+export default connect(null, mapDispatchToProps)(CartProduct);
 
-const CartItemContainer = styled.div`
+const CartProductContainer = styled.div`
   margin-bottom: 1rem;
   display: flex;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
@@ -92,7 +92,7 @@ const CartItemContainer = styled.div`
   }
   `;
 
-const CartItemDetails = styled.div`
+const CartProductDetails = styled.div`
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -115,7 +115,7 @@ const CartItemDetails = styled.div`
   }
   `;
 
-const CartItemActions = styled.div`
+const CartProductActions = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -124,7 +124,7 @@ const CartItemActions = styled.div`
   /* border: 1px solid red; */
   `;
 
-const CartItemQTY = styled.div`
+const CartProductQTY = styled.div`
   display: flex;
   align-items: center;
 
