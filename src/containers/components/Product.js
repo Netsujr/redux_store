@@ -2,8 +2,8 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 const Product = () => {
-  const products = [useSelector(state => state.allProducts.products)];
-  const { id, title, price, image } = products[0];
+  const products = useSelector(state => state.allProducts.products);
+  const { id, title  } = products[0];
   console.log(products);
 
   return (
