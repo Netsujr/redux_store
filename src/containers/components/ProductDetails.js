@@ -45,7 +45,6 @@ const ProductDetails = () => {
                 <h2>
                   <h5 className="ui teal tag label">${price}</h5>
                 </h2>
-                <button onClick={'clicked'}>delete</button>
                 <h3 className="ui brown block header">{category}</h3>
                 <p>{description}</p>
               </div>

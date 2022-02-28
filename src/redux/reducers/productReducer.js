@@ -13,7 +13,7 @@ export const productReducer = (state = initialState, { type, payload }) => {
   }
 };
 
-export const selectedProductReducer = (state = {}, { type, payload }) => {
+export const selectedProductReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case ActionTypes.SELECTED_PRODUCT:
       return { ...state, ...payload };
@@ -43,9 +43,10 @@ export const updateProduct = (state = {}, { type, payload }) => {
   }
 };
 
-export const deleteProduct = (state = {}, { type, payload }) => {
+export const deleteProduct = (state = initialState, { type, payload }) => {
   switch (type) {
     case ActionTypes.DELETE_PRODUCT:
+      console.log(state);
       return { ...state, products: state.products.filter(product => product.id !== payload) };
     default:
       return state;
