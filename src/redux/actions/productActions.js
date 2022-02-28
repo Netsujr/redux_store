@@ -14,7 +14,7 @@ export const selectedProduct = (product) => {
   };
 };
 
-export const editProdcut = (product) => {
+export const editProduct = (product) => {
   return {
     type: ActionTypes.EDIT_PRODUCT,
     payload: product,
