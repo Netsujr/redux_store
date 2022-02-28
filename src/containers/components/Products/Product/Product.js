@@ -12,9 +12,11 @@ const Product = ({ addToCart, loadCurrentItem }) => {
     <>
       {products.map((product) => (
         <ProductsContainer>
-          <img
-            src={product.image}
-            alt={product.title} />
+          <ImgContainer>
+            <img
+              src={product.image}
+              alt={product.title} />
+          </ImgContainer>
           <Details>
             <p>{product.title}</p>
             <p>{product.description}</p>
@@ -55,7 +57,7 @@ const ProductsContainer = styled.div`
     justify-content: space-between;
 
     img {
-      width: 250px;
+      width: 150px;
       object-fit: contain;
       border-radius: 5px;
     }
@@ -89,7 +91,7 @@ const Details = styled.div`
 const Buttons = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     padding: 1rem;
 
     button {
@@ -100,6 +102,7 @@ const Buttons = styled.div`
       font-size: 0.65rem;
       font-weight: bold;
       cursor: pointer;
+      margin: 1rem 0;
 
       &:hover {
         opacity: 0.75;
@@ -116,4 +119,12 @@ const Buttons = styled.div`
       }
 
     }
+    `;
+
+const ImgContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    padding: .5rem;
     `;
