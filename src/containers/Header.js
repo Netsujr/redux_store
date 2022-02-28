@@ -22,11 +22,11 @@ const Header = ({ cart }) => {
       </Link>
       <Link to="/cart">
         <HeaderCart>
-          <h3>Cart</h3>
           <img
             src="https://www.svgrepo.com/show/80543/shopping-cart-outline.svg"
             alt="shopping cart"
           />
+          <h3>Cart</h3>
           <CartCounter>{cartCount}</CartCounter>
         </HeaderCart>
       </Link>
@@ -55,7 +55,7 @@ const HeaderContainer = styled.div`
 
   h3 {
     font-size: 40px;
-    font-weight: bold;
+    font-weight: lighter;
     color: #fff;
   }
   `;
@@ -76,8 +76,9 @@ const HeaderCart = styled.div`
   }
 
   h3 {
-    font-size: 30px;
+    font-size: 25px;
     font-weight: bold;
+    margin: auto;
     color: var(--dark-color);
   }
 

@@ -45,7 +45,7 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(null, mapDispatchToProps)(Product);
 
 const ProductsContainer = styled.div`
-  width: 900px;
+  width: 70vw;
   margin-bottom: 1rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   border-radius: 10px;
@@ -55,28 +55,29 @@ const ProductsContainer = styled.div`
   img {
     width: 250px;
     object-fit: contain;
-    border-radius: 10px;
+    border-radius: 5px;
   }
   `;
 
 const Details = styled.div`
   padding: 1rem;
   display: flex;
+  width: 50%;
   flex-direction: column;
   justify-content: space-between;
 
-  &:nth-child(1) {
-    font-size: 0.8rem;
+  p:nth-child(1) {
+    font-size: 1.2rem;
     font-weight: bold;
     color: var(--secondary-color);
   }
 
-  &:nth-child(2) {
-    font-size: 0.85rem;
+  p:nth-child(2) {
+    font-size: 1rem;
     color: var(--secondary-color);
   }
 
-  &:nth-child(3) {
+  p:nth-child(3) {
     font-size: 1.2rem;
     font-weight: bold;
     color: var(--secondary-color);
