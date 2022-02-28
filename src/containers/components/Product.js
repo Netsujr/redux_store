@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Product = () => {
   const products = useSelector(state => state.allProducts.products);
-  const renderList = products.map((product) => {
+  const productList = products.map((product) => {
     const { id, title, price, image, category } = product;
     return (
       <div className='four wide column' key={id}>
@@ -25,12 +25,9 @@ const Product = () => {
       </div>
     )
   })
-
-  console.log(products);
-
   return (
     <>
-      {renderList}
+      {productList}
     </>
   );
 };

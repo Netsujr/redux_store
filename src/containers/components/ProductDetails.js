@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { selectedProduct } from "../redux/actions/productsActions";
+import { selectedProduct } from "../../redux/actions/productActions";
 import axios from "axios";
 
-
 const ProductDetails = () => {
-  let product = useSelector((state) => state.product);
-  const { image, title, price, category, description } = product;
   const { productId } = useParams();
+  const product = useSelector((state) => state.product);
+  const { image, title, price, category, description } = product;
   const dispatch = useDispatch();
   console.log(product);
+  console.log(productId);
 
   const fetchProductDetail = async () => {
     const response = await axios
