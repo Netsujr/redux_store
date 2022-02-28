@@ -2,6 +2,7 @@ import React from "react";
 import styled from 'styled-components';
 import { connect } from "react-redux";
 import { addToCart } from "../../../redux/Store/storeActions";
+import { Link } from "react-router-dom";
 
 const SingleItem = ({ current, addToCart }) => {
   return (
@@ -21,6 +22,7 @@ const SingleItem = ({ current, addToCart }) => {
         >Add To Cart
         </button>
       </ItemDetails>
+        <Link style={{color: 'green', fontWeight: 'bold', fontSize: '14px'}} to="/">Home</Link>
     </ItemContainer>
   );
 };
@@ -51,6 +53,14 @@ const ItemContainer = styled.div`
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
     border-radius: 10px;
   }
+  `;
+
+const ItemDetails = styled.div`
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--secondary-color);
 
   button {
     width: 45%;
@@ -63,27 +73,18 @@ const ItemContainer = styled.div`
     font-weight: bold;
     cursor: pointer;
     outline: none;
+
+    &:hover {
+      opacity: 0.75;
+    }
   }
 
-  &:hover {
-    opacity: 0.75;
+  p:nth-child(1), p:nth-child(3) {
+    font-size: 1.2rem;
+    font-weight: bold;
   }
-}
-`;
 
-const ItemDetails = styled.div`
-padding: 1rem;
-display: flex;
-flex-direction: column;
-justify-content: space-between;
-color: var(--secondary-color);
-
-&:nth-child(1), &:nth-child(3) {
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
-&:nth-child(2) {
-  font-size: 1rem;
-}
-`;
+  p:nth-child(2) {
+    font-size: 1.4rem;
+  }
+  `;
