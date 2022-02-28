@@ -1,24 +1,24 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Redirect, } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link, } from "react-router-dom";
 import "./App.css";
 import { connect } from "react-redux";
-import Navbar from "./components/Navbar/Navbar";
-import Products from "./components/Products/Products";
-import Cart from "./components/Cart/Cart";
-import SingleItem from "./components/SingleItem/SingleItem";
+import Header from "./containers/Header";
+import Products from "./containers/components/Products/ProductList";
+import Cart from "./containers/components/Cart/Cart";
+import SingleProduct from "./containers/components/SingleProduct/SingleProduct";
 
 function App({ current }) {
   return (
     <Router>
       <div className="app">
-        <Navbar />
+        <Header />
         <Routes>
           <Route exact path="/" element={<Products/>} />
           <Route exact path="/cart" element={<Cart/>} />
           {!current ? (
-            <Redirect to="/" />
+            <Link to="/" />
           ) : (
-            <Route exact path="/product/:id" element={<SingleItem/>} />
+            <Route exact path="/product/:id" element={<SingleProduct/>} />
           )}
         </Routes>
       </div>

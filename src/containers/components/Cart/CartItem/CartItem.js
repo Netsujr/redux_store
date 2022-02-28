@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { adjustItemQty, removeFromCart } from "../../../redux/Store/storeActions";
+import { adjustItemQty, removeFromCart } from "../../../../redux/Store/storeActions";
 import styled from "styled-components";
 
 const CartItem = ({ item, adjustQty, removeFromCart }) => {
