@@ -18,6 +18,25 @@ export const removeFromCart = (itemID) => {
   };
 };
 
+export const updateCurrentItem = (itemID) => {
+  return {
+    type: actionTypes.UPDATE_CURRENT_ITEM,
+    payload: {
+      id: itemID,
+    },
+  };
+};
+
+export const deleteItem = (itemID) => {
+  return {
+    type: actionTypes.DELETE_ITEM,
+    payload: {
+      id: itemID,
+    },
+  };
+};
+
+
 export const adjustItemQty = (itemID, qty) => {
   return {
     type: actionTypes.ADJUST_ITEM_QTY,

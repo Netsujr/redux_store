@@ -26,6 +26,26 @@ const shopReducer = (state = INITIAL_STATE, {type, payload}) => {
           )
           : [...state.cart, { ...item, qty: 1 }],
       };
+
+    case actionTypes.UPDATE_CURRENT_ITEM:
+      const currentItem = state.products.find(
+        (product) => product.id === payload.id
+      );
+      return {
+        ...state,
+        currentItem,
+      };
+
+      case actionTypes.DELETE_ITEM:
+        const NewProducts = state.products.filter(
+          (product) => product.id !== payload.id
+        );
+        return {
+          ...state,
+          products: NewProducts,
+        };
+
+
     case actionTypes.REMOVE_FROM_CART:
       return {
         ...state,

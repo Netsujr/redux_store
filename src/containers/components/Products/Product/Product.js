@@ -1,11 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { connect, useSelector } from "react-redux";
-import { loadCurrentItem, addToCart } from "../../../../redux/Store/storeActions";
+import { connect, useDispatch, useSelector } from "react-redux";
+import { loadCurrentItem, addToCart, deleteItem } from "../../../../redux/Store/storeActions";
 
-const Product = ({ addToCart, loadCurrentItem }) => {
+const Product = ({ addToCart, loadCurrentItem, removeFromCart }) => {
   const products = useSelector(state => state.store.products);
+  const dispatch = useDispatch();
+
+  const removeItem = (id) => {
+    dispatch(deleteItem(id));
+  };
 
   return (
     <>
@@ -31,6 +36,9 @@ const Product = ({ addToCart, loadCurrentItem }) => {
             <button
               onClick={() => addToCart(product.id)}
             >Add To Cart</button>
+            <button
+              onClick={() => removeItem(product.id)}
+              >Remove</button>
           </Buttons>
         </ProductsContainer>
       ))}
@@ -113,6 +121,11 @@ const Buttons = styled.div`
       }
 
       &:nth-child(2) {
+        background: var(--secondary-color);
+        color: var(--light-color);
+      }
+
+      &:nth-child(3) {
         background: var(--secondary-color);
         color: var(--light-color);
       }
