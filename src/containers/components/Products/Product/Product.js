@@ -6,7 +6,6 @@ import { loadCurrentItem, addToCart } from "../../../../redux/Store/storeActions
 
 const Product = ({ addToCart, loadCurrentItem }) => {
   const products = useSelector(state => state.store.products);
-  const { id, title } = products;
 
   return (
     <>

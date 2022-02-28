@@ -6,9 +6,9 @@ import styled from "styled-components";
 const CartItem = ({ item, adjustQty, removeFromCart }) => {
   const [input, setInput] = useState(item.qty);
 
-  const onChangeHandler = (e) => {
-    setInput(e.target.value);
-    adjustQty(item.id, e.target.value);
+  const onChangeHandler = (event) => {
+    setInput(event.target.value);
+    adjustQty(item.id, event.target.value);
   };
 
   return (
