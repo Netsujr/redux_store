@@ -23,3 +23,7 @@ export const selectedProductReducer = (state = {}, { type, payload }) => {
       return state;
   }
 };
+
+export const addProductToCartReducer = (state = [], {type, payload}) => {
+
+};
