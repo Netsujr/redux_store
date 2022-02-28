@@ -16,23 +16,23 @@ export const removeSelectedProduct = () => {
   };
 };
 
-export const deleteProduct = (productId) => {
+export const removeFromCart = (productId) => {
   return {
-    type: ActionTypes.DELETE_PRODUCT,
+    type: ActionTypes.REMOVE_FROM_CART,
     payload: productId,
   };
 };
 
-export const updateProduct = (product) => {
+export const updateCart = (product) => {
   return {
-    type: ActionTypes.UPDATE_PRODUCT,
+    type: ActionTypes.UPDATE_CART_QTY,
     payload: product,
   };
 }
 
-export const createProduct = (product) => {
+export const addToCart = (product) => {
   return {
-    type: ActionTypes.CREATE_PRODUCT,
+    type: ActionTypes.ADD_TO_CART,
     payload: product,
   };
 }
