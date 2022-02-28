@@ -16,9 +16,7 @@ const ProductList = () => {
 
   useEffect(() => {
     fetchProducts();
-  }, []);
-
-
+  }, [dispatch]);
 
   return (
     <div className='ui grid container'>
