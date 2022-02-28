@@ -70,25 +70,25 @@ const CartItemContainer = styled.div`
     align-items: center;
     border-radius: 50%;
     cursor: pointer;
-    transition: all ease-in-out 0.7s;
+    transition: all ease-in-out 0.6s;
     outline: none;
 
     &:hover {
       transform: scale(1.2) rotate(360deg);
-      background-color: rgb(209, 15, 15);
+      background-color: rgba(209, 15, 15, 0.5);
     }
 
     img {
-      width: 15px;
-      height: 15px;
+      width: 35px;
+      height: 35px;
     }
   }
 
   img {
-    width: 150px;
+    width: 100px;
     object-fit: contain;
     border-radius: 10px;
-    padding: 2rem;
+    margin: 1.5rem;
   }
   `;
 
