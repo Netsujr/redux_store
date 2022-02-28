@@ -27,27 +27,27 @@ export const selectedProductReducer = (state = initialState, { type, payload }) 
 };
 
 
-export const createProduct = (state = {}, { type, payload }) => {
+export const addToCart = (state = {}, { type, payload }) => {
   switch (type) {
-    case ActionTypes.CREATE_PRODUCT:
+    case ActionTypes.ADD_TO_CART:
       return { ...state, products: [...state.products, payload] };
     default:
       return state;
   }
 };
 
-export const updateProduct = (state = {}, { type, payload }) => {
+export const updateCart = (state = {}, { type, payload }) => {
   switch (type) {
-    case ActionTypes.UPDATE_PRODUCT:
+    case ActionTypes.UPDATE_CART_QTY:
       return { ...state, products: state.products.map(product => product.id === payload.id ? payload : product) };
     default:
       return state;
   }
 };
 
-export const deleteProduct = (state = initialState, { type, payload }) => {
+export const removeFromCart = (state = initialState, { type, payload }) => {
   switch (type) {
-    case ActionTypes.DELETE_PRODUCT:
+    case ActionTypes.REMOVE_FROM_CART:
       return { ...state, products: state.products.filter(product => product.id !== payload.id) };
     default:
       return state;
