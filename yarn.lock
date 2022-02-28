@@ -7149,6 +7149,11 @@ react-is@^17.0.1, react-is@^17.0.2:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
 
+react-random-image@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/react-random-image/-/react-random-image-1.0.3.tgz#60b80c85e55e08247cd66748d2dc514991ed0375"
+  integrity sha512-P648VxgIiPo1bMTfCgDkbmyLMRRD7ETkZdWs/U42Wh8FeO/zCsC3wwcTkE+E9e3x7jqOZDz6QEaDWLdgTsMuhw==
+
 react-redux@^7.2.6:
   version "7.2.6"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-7.2.6.tgz#49633a24fe552b5f9caf58feb8a138936ddfe9aa"

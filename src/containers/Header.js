@@ -3,17 +3,24 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { connect, useDispatch } from "react-redux";
 import { createProduct } from "../redux/Store/storeActions";
+import Image from 'react-random-image';
 
 const Header = ({ cart }) => {
   const [cartCount, setCartCount] = useState(0);
   const dispatch = useDispatch();
   const ID = Date.now();
-
-  console.log(ID);
+  const price = Math.floor(Math.random() * 100);
+  const description = "Up! Get p! she screeched. Harry heard her walking toward the kitchen and then the sound of the frying pan being put on the stove.He rolled onto his back and tried to remember the dream he had been having.It had been a good one.There had been a flying motorcycle in it.He had a funny feeling hed had the same dream before.";
+  const randomImage = Image({
+    width: 200,
+    height: 200,
+    background: '#ccc',
+  });
 
   const createProductHandler = (product) => {
     dispatch(createProduct(product));
   };
+
 
 
   useEffect(() => {
@@ -32,12 +39,12 @@ const Header = ({ cart }) => {
       </Link>
       <HeaderRight>
         <NewProductContainer
-        onClick={() => createProductHandler({
-          id: ID,
-          title: "New Product",
-          description: "New Product Description",
-          price: "0.00",
-          image: "https://freesvg.org/img/trash.png",
+          onClick={() => createProductHandler({
+            id: ID,
+            title: "New Product",
+            description: description,
+            price: `${price}.99`,
+            image: randomImage.props.src,
           })}
         >
           <h3>Add Product</h3>
