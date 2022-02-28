@@ -5,12 +5,6 @@ import { deleteProduct } from '../../redux/actions/productActions';
 
 const Product = () => {
   const products = useSelector(state => state.allProducts.products);
-  const dispatch = useDispatch();
-
-  const handleDelete = (id) => {
-    dispatch(deleteProduct(id));
-  };
-
 
   const productList = products.map((product) => {
     const { id, title, price, image, category } = product;
@@ -30,7 +24,7 @@ const Product = () => {
             </div>
           </div>
         </Link>
-        <button onClick={() => handleDelete(id)}>delete</button>
+        <button>delete</button>
       </div>
     )
   })

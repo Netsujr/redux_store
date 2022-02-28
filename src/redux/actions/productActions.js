@@ -16,10 +16,10 @@ export const removeSelectedProduct = () => {
   };
 };
 
-export const deleteProduct = (id) => {
+export const deleteProduct = (productId) => {
   return {
     type: ActionTypes.DELETE_PRODUCT,
-    payload: id,
+    payload: productId,
   };
 };
 

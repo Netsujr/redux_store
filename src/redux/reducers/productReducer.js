@@ -5,9 +5,11 @@ const initialState = {
 };
 
 export const productReducer = (state = initialState, { type, payload }) => {
+  console.log(type);
   switch (type) {
     case ActionTypes.SET_PRODUCTS:
       return { ...state, products: payload };
+      console.log(payload);
     default:
       return state;
   }
@@ -46,8 +48,7 @@ export const updateProduct = (state = {}, { type, payload }) => {
 export const deleteProduct = (state = initialState, { type, payload }) => {
   switch (type) {
     case ActionTypes.DELETE_PRODUCT:
-      console.log(state);
-      return { ...state, products: state.products.filter(product => product.id !== payload) };
+      return { ...state, products: state.products.filter(product => product.id !== payload.id) };
     default:
       return state;
   }
