@@ -1,11 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { connect, useSelector } from "react-redux";
-import { loadCurrentItem, addToCart } from "../../../../redux/Store/storeActions";
+import { connect, useDispatch, useSelector } from "react-redux";
+import { loadCurrentItem, addToCart, deleteItem } from "../../../../redux/Store/storeActions";
 
-const Product = ({ addToCart, loadCurrentItem }) => {
+const Product = ({ addToCart, loadCurrentItem, removeFromCart }) => {
   const products = useSelector(state => state.store.products);
+  const dispatch = useDispatch();
+
+  const removeItem = (id) => {
+    dispatch(deleteItem(id));
+  };
 
   return (
     <>
@@ -31,6 +36,13 @@ const Product = ({ addToCart, loadCurrentItem }) => {
             <button
               onClick={() => addToCart(product.id)}
             >Add To Cart</button>
+            <button
+              onClick={() => removeItem(product.id)}>
+              <img
+                src="https://freesvg.org/img/trash.png"
+                alt="trash"
+              />
+            </button>
           </Buttons>
         </ProductsContainer>
       ))}
@@ -91,6 +103,7 @@ const Buttons = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     padding: 1rem;
 
     button {
@@ -117,13 +130,44 @@ const Buttons = styled.div`
         color: var(--light-color);
       }
 
+      &:nth-child(3) {
+        width: 45px;
+        height: 45px;
+        border: 1px solid var(--secondary-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all ease-in-out 0.6s;
+        outline: none;
+
+        &:hover {
+          transform: scale(1.2) rotate(360deg);
+          background-color: rgba(209, 15, 15, 0.5);
+        }
+
+        img {
+          width: 30px;
+          height: 30px;
+        }
+      }
+      background: var(--primary-color);
+      color: var(--light-color);
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
     }
-    `;
+
+  }
+  `;
 
 const ImgContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
-    padding: .5rem;
-    `;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  padding: .5rem;
+  `;
