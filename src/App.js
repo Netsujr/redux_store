@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link, } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate, } from "react-router-dom";
 import "./App.css";
 import { connect } from "react-redux";
 import Header from "./containers/Header";
@@ -15,11 +15,12 @@ function App({ current }) {
         <Routes>
           <Route exact path="/" element={<Products/>} />
           <Route exact path="/cart" element={<Cart/>} />
-          {!current ? (
-            <Link to="/" />
+          <Route exact path="/product/:id" element={<SingleProduct/>} />
+          {/* {!current ? (
+            <Navigate replace to="/" />
           ) : (
             <Route exact path="/product/:id" element={<SingleProduct/>} />
-          )}
+          )} */}
         </Routes>
       </div>
     </Router>
@@ -28,7 +29,7 @@ function App({ current }) {
 
 const mapStateToProps = (state) => {
   return {
-    current: state.shop.currentItem,
+    current: state.store.currentItem,
   };
 };
 

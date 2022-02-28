@@ -42,7 +42,7 @@ const Cart = ({ cart }) => {
 
 const mapStateToProps = (state) => {
   return {
-    cart: state.shop.cart,
+    cart: state.store.cart,
   };
 };
 

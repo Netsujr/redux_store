@@ -16,7 +16,7 @@ const Products = ({ products }) => {
 
 const mapStateToProps = (state) => {
   return {
-    products: state.shop.products,
+    products: state.store.products,
   };
 };
 

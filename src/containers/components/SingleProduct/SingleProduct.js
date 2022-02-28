@@ -27,7 +27,7 @@ const SingleItem = ({ current, addToCart }) => {
 
 const mapStateToProps = (state) => {
   return {
-    current: state.shop.currentItem,
+    current: state.store.currentItem,
   };
 };
 
