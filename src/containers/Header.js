@@ -10,10 +10,10 @@ const Header = ({ cart }) => {
   const dispatch = useDispatch();
   const ID = Date.now();
   const price = Math.floor(Math.random() * 100);
-  const description = "Up! Get p! she screeched. Harry heard her walking toward the kitchen and then the sound of the frying pan being put on the stove.He rolled onto his back and tried to remember the dream he had been having.It had been a good one.There had been a flying motorcycle in it.He had a funny feeling hed had the same dream before.";
+  const description = "Up! Get up! she screeched. Harry heard her walking toward the kitchen and then the sound of the frying pan being put on the stove. He rolled onto his back and tried to remember the dream he had been having.It had been a good one. There had been a flying motorcycle in it.He had a funny feeling hed had the same dream before.";
   const randomImage = Image({
-    width: 200,
-    height: 200,
+    width: 250,
+    height: 250,
     background: '#ccc',
   });
 
