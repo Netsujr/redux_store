@@ -34,23 +34,21 @@ const INITIAL_STATE = {
   currentItem: null,
 };
 
-const shopReducer = (state = INITIAL_STATE, action) => {
-  switch (action.type) {
+const shopReducer = (state = INITIAL_STATE, {type, payload}) => {
+  switch (type) {
     case actionTypes.ADD_TO_CART:
-      // Great Item data from products array
       const item = state.products.find(
-        (product) => product.id === action.payload.id
+        (product) => product.id === payload.id
       );
-      // Check if Item is in cart already
       const inCart = state.cart.find((item) =>
-        item.id === action.payload.id ? true : false
+        item.id === payload.id ? true : false
       );
 
       return {
         ...state,
         cart: inCart
           ? state.cart.map((item) =>
-            item.id === action.payload.id
+            item.id === payload.id
               ? { ...item, qty: item.qty + 1 }
               : item
           )
@@ -59,22 +57,29 @@ const shopReducer = (state = INITIAL_STATE, action) => {
     case actionTypes.REMOVE_FROM_CART:
       return {
         ...state,
-        cart: state.cart.filter((item) => item.id !== action.payload.id),
+        cart: state.cart.filter((item) => item.id !== payload.id),
       };
     case actionTypes.ADJUST_ITEM_QTY:
       return {
         ...state,
         cart: state.cart.map((item) =>
-          item.id === action.payload.id
-            ? { ...item, qty: +action.payload.qty }
+          item.id === payload.id
+            ? { ...item, qty: +payload.qty }
             : item
         ),
       };
     case actionTypes.LOAD_CURRENT_ITEM:
       return {
         ...state,
-        currentItem: action.payload,
+        currentItem: payload,
       };
+
+      case actionTypes.LOAD_ALL_ITEMS:
+        return {
+          ...state,
+          products: payload,
+        };
+
     default:
       return state;
   }

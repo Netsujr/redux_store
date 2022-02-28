@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
-
 import Product from "./Product/Product";
 
 const Products = ({ products }) => {
+
+
+
   return (
     <ProductsContainer>
       {products.map((product) => (
