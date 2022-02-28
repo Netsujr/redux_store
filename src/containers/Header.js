@@ -1,10 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
+import { createProduct } from "../redux/Store/storeActions";
 
 const Header = ({ cart }) => {
   const [cartCount, setCartCount] = useState(0);
+  const dispatch = useDispatch();
+  const ID = Date.now();
+
+  console.log(ID);
+
+  const createProductHandler = (product) => {
+    dispatch(createProduct(product));
+  };
+
 
   useEffect(() => {
     let count = 0;
@@ -22,7 +32,13 @@ const Header = ({ cart }) => {
       </Link>
       <HeaderRight>
         <NewProductContainer
-        onCLick={() => {}}
+        onClick={() => createProductHandler({
+          id: ID,
+          title: "New Product",
+          description: "New Product Description",
+          price: "0.00",
+          image: "https://freesvg.org/img/trash.png",
+          })}
         >
           <h3>Add Product</h3>
         </NewProductContainer>

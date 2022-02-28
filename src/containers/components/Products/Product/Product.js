@@ -15,7 +15,7 @@ const Product = ({ addToCart, loadCurrentProduct, removeFromCart }) => {
   return (
     <>
       {products.map((product) => (
-        <ProductsContainer>
+        <ProductsContainer key={product.id}>
           <ImgContainer>
             <img
               src={product.image}

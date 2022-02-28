@@ -7,7 +7,7 @@ import { loadAllProducts } from "../../../redux/Store/storeActions";
 
 const Products = () => {
   const products = useSelector(state => state.store.products);
-  console.log(products);
+  // console.log(products);
   const dispatch = useDispatch();
 
   const fetchProducts = async () => {
@@ -41,6 +41,6 @@ const ProductsContainer = styled.div`
   width: 100%;
   margin-top: 2rem;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   align-items: center;
   `;
