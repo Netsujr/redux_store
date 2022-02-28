@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const ThankYou = () => {
   return (
     <Container>
-      <h1>Thank You for shopping with us!</h1>
+      <h1>😎 Shopped like a boss! 😎</h1>
     </Container>
   );
 };
