@@ -24,24 +24,23 @@ const Product = ({ addToCart, loadCurrentProduct, removeFromCart }) => {
           <Details>
             <p>{product.title}</p>
             <p>{product.description}</p>
+            <UpdatePrice>
             <p>$ {product.price}</p>
+
+            </UpdatePrice>
           </Details>
 
           <Buttons>
             <Link to={`/product/${product.id}`}>
-              <button
-                onClick={() => loadCurrentProduct(product)}
+              <button onClick={() => loadCurrentProduct(product)}
               >View Product</button>
             </Link>
-            <button
-              onClick={() => addToCart(product.id)}
+            <button onClick={() => addToCart(product.id)}
             >Add To Cart</button>
-            <button
-              onClick={() => removeProduct(product.id)}>
+            <button onClick={() => removeProduct(product.id)}>
               <img
                 src="https://freesvg.org/img/trash.png"
-                alt="trash"
-              />
+                alt="trash" />
             </button>
           </Buttons>
         </ProductsContainer>
@@ -171,3 +170,6 @@ const ImgContainer = styled.div`
   flex-grow: 1;
   padding: .5rem;
   `;
+
+const UpdatePrice = styled.div`
+`;
