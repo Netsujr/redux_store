@@ -27,7 +27,7 @@ function App({ current }) {
 
 const mapStateToProps = (state) => {
   return {
-    current: state.store.currentItem,
+    current: state.store.currentProduct,
   };
 };
 

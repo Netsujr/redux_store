@@ -4,16 +4,16 @@ import { connect, useDispatch } from "react-redux";
 import { addToCart } from "../../../redux/Store/storeActions";
 import { Link } from "react-router-dom";
 
-const SingleItem = ({ current, addToCart }) => {
+const SingleProduct = ({ current, addToCart }) => {
 
   return (
-    <ItemContainer>
+    <ProductContainer>
       <img
         src={current.image}
         alt={current.title}
       />
 
-      <ItemDetails>
+      <ProductDetails>
         <p>{current.title}</p>
         <p>{current.description}</p>
         <p>$ {current.price}</p>
@@ -23,14 +23,14 @@ const SingleItem = ({ current, addToCart }) => {
         >Add To Cart
         </button>
         <Link style={{color: 'green', fontWeight: 'bold', fontSize: '20px'}} to="/">Back</Link>
-      </ItemDetails>
-    </ItemContainer>
+      </ProductDetails>
+    </ProductContainer>
   );
 };
 
 const mapStateToProps = (state) => {
   return {
-    current: state.store.currentItem,
+    current: state.store.currentProduct,
   };
 };
 
@@ -40,9 +40,9 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SingleItem);
+export default connect(mapStateToProps, mapDispatchToProps)(SingleProduct);
 
-const ItemContainer = styled.div`
+const ProductContainer = styled.div`
   width: 1100px;
   margin: 2rem auto;
   display: flex;
@@ -57,7 +57,7 @@ const ItemContainer = styled.div`
   }
   `;
 
-const ItemDetails = styled.div`
+const ProductDetails = styled.div`
   padding: 1rem;
   display: flex;
   flex-direction: column;

@@ -2,20 +2,20 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { connect, useDispatch, useSelector } from "react-redux";
-import { loadCurrentItem, addToCart, deleteItem } from "../../../../redux/Store/storeActions";
+import { loadCurrentProduct, addToCart, deleteProduct } from "../../../../redux/Store/storeActions";
 
-const Product = ({ addToCart, loadCurrentItem, removeFromCart }) => {
+const Product = ({ addToCart, loadCurrentProduct, removeFromCart }) => {
   const products = useSelector(state => state.store.products);
   const dispatch = useDispatch();
 
-  const removeItem = (id) => {
-    dispatch(deleteItem(id));
+  const removeProduct = (id) => {
+    dispatch(deleteProduct(id));
   };
 
   return (
     <>
       {products.map((product) => (
-        <ProductsContainer>
+        <ProductsContainer key={product.id}>
           <ImgContainer>
             <img
               src={product.image}
@@ -30,14 +30,14 @@ const Product = ({ addToCart, loadCurrentItem, removeFromCart }) => {
           <Buttons>
             <Link to={`/product/${product.id}`}>
               <button
-                onClick={() => loadCurrentItem(product)}
-              >View Item</button>
+                onClick={() => loadCurrentProduct(product)}
+              >View Product</button>
             </Link>
             <button
               onClick={() => addToCart(product.id)}
             >Add To Cart</button>
             <button
-              onClick={() => removeItem(product.id)}>
+              onClick={() => removeProduct(product.id)}>
               <img
                 src="https://freesvg.org/img/trash.png"
                 alt="trash"
@@ -53,7 +53,7 @@ const Product = ({ addToCart, loadCurrentItem, removeFromCart }) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     addToCart: (id) => dispatch(addToCart(id)),
-    loadCurrentItem: (item) => dispatch(loadCurrentItem(item)),
+    loadCurrentProduct: (product) => dispatch(loadCurrentProduct(product)),
   };
 };
 
