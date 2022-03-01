@@ -67,6 +67,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     addToCart: (id) => dispatch(addToCart(id)),
     loadCurrentProduct: (product) => dispatch(loadCurrentProduct(product)),
+    // updateCurrentProduct: (product) => dispatch(updateCurrentProduct(product)),
   };
 };
 

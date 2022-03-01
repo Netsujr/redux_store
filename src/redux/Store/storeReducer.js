@@ -3,7 +3,7 @@ import * as actionTypes from "../constants/action-types";
 const INITIAL_STATE = {
   products: [],
   cart: [],
-  currentPruduct: null,
+  currentProduct: null,
 };
 
 const shopReducer = (state = INITIAL_STATE, { type, payload }) => {
