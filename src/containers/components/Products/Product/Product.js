@@ -16,7 +16,7 @@ const Product = ({ addToCart, loadCurrentProduct, removeFromCart }) => {
     dispatch(updateCurrentProduct(id));
   };
 
-
+  console.log(products);
   return (
     <>
       {products.map((product) => (
@@ -52,6 +52,7 @@ const Product = ({ addToCart, loadCurrentProduct, removeFromCart }) => {
                 price: '99.99',
                 image: product.image,
               })}>
+                {/* {console.log(products)} */}
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Edit_icon_%28the_Noun_Project_30184%29.svg/1024px-Edit_icon_%28the_Noun_Project_30184%29.svg.png" alt="edit" />
               </button>
             </UpdateProduct>
