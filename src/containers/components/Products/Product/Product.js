@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { connect, useDispatch, useSelector } from "react-redux";
@@ -6,11 +6,6 @@ import { loadCurrentProduct, addToCart, deleteProduct, updateCurrentProduct } fr
 
 const Product = ({ addToCart, loadCurrentProduct, removeFromCart }) => {
   const products = useSelector(state => state.store.products);
-  const [newInfo, setNewInfo] = useState({
-    title: "",
-    description: "",
-    price: "",
-  });
   const dispatch = useDispatch();
 
   const removeProduct = (id) => {
