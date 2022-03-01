@@ -178,7 +178,7 @@ const UpdateProduct = styled.div`
       }
 
       &:nth-child(1):hover {
-        transform: scale(1.2) rotate(360deg);
+        transform: scale(1.2);
         background-color: rgba(209, 15, 15, 0.5);
       }
 

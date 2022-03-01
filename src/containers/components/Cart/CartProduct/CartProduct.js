@@ -77,7 +77,7 @@ const CartProductContainer = styled.div`
     outline: none;
 
     &:hover {
-      transform: scale(1.2) rotate(360deg);
+      transform: scale(1.2);
       background-color: rgba(209, 15, 15, 0.5);
     }
 
