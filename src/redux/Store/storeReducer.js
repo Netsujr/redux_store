@@ -28,7 +28,7 @@ const shopReducer = (state = INITIAL_STATE, { type, payload }) => {
       };
 
     case actionTypes.UPDATE_CURRENT_PRODUCT:
-      const currentProduct = state.products.map(
+      const updatedProduct = state.products.map(
         (product) => product.id === payload.id ?
           {
             ...state,
@@ -39,7 +39,7 @@ const shopReducer = (state = INITIAL_STATE, { type, payload }) => {
       );
       return {
         ...state,
-        currentProduct,
+        updatedProduct,
       };
 
     case actionTypes.DELETE_PRODUCT:
