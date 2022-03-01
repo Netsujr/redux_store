@@ -18,12 +18,10 @@ export const removeFromCart = (productID) => {
   };
 };
 
-export const updateCurrentProduct = (productID) => {
+export const updateCurrentProduct = (product) => {
   return {
     type: actionTypes.UPDATE_CURRENT_PRODUCT,
-    payload: {
-      id: productID,
-    },
+    payload: product,
   };
 };
 

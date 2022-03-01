@@ -21,8 +21,6 @@ const Header = ({ cart }) => {
     dispatch(createProduct(product));
   };
 
-
-
   useEffect(() => {
     let count = 0;
     cart.forEach((product) => {
