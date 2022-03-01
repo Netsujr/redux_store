@@ -13,15 +13,17 @@ const CartProduct = ({ product, adjustQty, removeFromCart }) => {
 
   return (
     <CartProductContainer>
-      <img
-        src={product.image}
-        alt={product.title}
-      />
-      <CartProductDetails>
-        <p> {product.title}</p>
-        <p> {product.description}</p>
-        <p> $ {product.price}</p>
-      </CartProductDetails>
+      <CartImageDetails>
+        <img
+          src={product.image}
+          alt={product.title}
+        />
+        <CartProductDetails>
+          <p> {product.title}</p>
+          <p> {product.description}</p>
+          <p> $ {product.price}</p>
+        </CartProductDetails>
+      </CartImageDetails>
       <CartProductActions>
         <CartProductQTY>
           <label htmlFor="qty">Qty</label>
@@ -60,6 +62,7 @@ const CartProductContainer = styled.div`
   display: flex;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   border-radius: 10px;
+  justify-content: space-between;
 
   button {
     width: 50px;
@@ -90,6 +93,10 @@ const CartProductContainer = styled.div`
     border-radius: 10px;
     margin: 1.5rem;
   }
+  `;
+
+const CartImageDetails = styled.div`
+  display: flex;
   `;
 
 const CartProductDetails = styled.div`
