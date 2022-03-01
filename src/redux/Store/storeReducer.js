@@ -28,18 +28,16 @@ const shopReducer = (state = INITIAL_STATE, { type, payload }) => {
       };
 
     case actionTypes.UPDATE_CURRENT_PRODUCT:
-      const updatedProduct = state.products.map(
-        (product) => product.id === payload.id ?
-          {
-            ...state,
-            title: payload.title,
-            description: payload.description,
-            price: payload.price,
-          } : product
-      );
+      const updatedProduct = payload
+      const updatedProducts = state.products.map((product) => {
+        if (product.id === updatedProduct.id) {
+          return updatedProduct;
+        }
+        return product;
+      });
       return {
         ...state,
-        updatedProduct,
+        products: updatedProducts,
       };
 
     case actionTypes.DELETE_PRODUCT:
