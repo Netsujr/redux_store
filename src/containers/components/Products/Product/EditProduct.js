@@ -23,14 +23,13 @@ const EditProduct = () => {
     image: currentProduct.image
   });
 
-  const updateProduct = (id) => {
-    dispatch(updateCurrentProduct(id));
-  };
-
   useEffect(() => {
     setSelectedProduct(currentProduct);
   }, [currentProduct, products]);
 
+  const updateProduct = (id) => {
+    dispatch(updateCurrentProduct(id));
+  };
 
   const handleChange = (productKey, newValue) => {
     setSelectedProduct({
@@ -49,7 +48,7 @@ const EditProduct = () => {
     <FormContainer>
       <form onSubmit={handleSubmit}>
         <label for="name"><h1>Edit Product</h1></label>
-
+        {/* <img src={selectedProduct.image} alt={selectedProduct.title} /> */}
         <input
           type="text"
           value={selectedProduct?.title ? selectedProduct.title : ''}
