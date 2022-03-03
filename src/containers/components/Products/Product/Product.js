@@ -16,7 +16,7 @@ const Product = ({ addToCart, loadCurrentProduct, removeFromCart }) => {
     dispatch(updateCurrentProduct(id));
   };
 
-  console.log(products);
+  // console.log(products);
   return (
     <>
       {products.map((product) => (
@@ -45,16 +45,9 @@ const Product = ({ addToCart, loadCurrentProduct, removeFromCart }) => {
                   src="https://freesvg.org/img/trash.png"
                   alt="trash" />
               </button>
-              <button onClick={() => updateProduct({
-                id: product.id,
-                title: 'Product Changed!',
-                description: 'This product has been changed!',
-                price: '99.99',
-                image: product.image,
-              })}>
-                {/* {console.log(products)} */}
+              <Link to={`product/edit/${product.id}`}>
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Edit_icon_%28the_Noun_Project_30184%29.svg/1024px-Edit_icon_%28the_Noun_Project_30184%29.svg.png" alt="edit" />
-              </button>
+              </Link>
             </UpdateProduct>
           </Buttons>
         </ProductsContainer>
