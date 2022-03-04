@@ -25,6 +25,7 @@ const AddProduct = () => {
       title: productTitle,
       description: productDescription,
       price: productPrice,
+      image: randomImage.props.src,
     };
     dispatch(createProduct(newProduct));
     navigate('/');
@@ -42,12 +43,14 @@ const AddProduct = () => {
     setProductPrice(e.target.value);
   };
 
+  console.log(randomImage);
+
   return (
     <>
       <ProductContainer>
         <TitleImage>
           <h1>Edit Product</h1>
-          <img src={randomImage} alt={randomImage.name} />
+          <img src={randomImage.props.src} alt={randomImage.name} />
         </TitleImage>
         <ProductDetails>
           <form className="form">

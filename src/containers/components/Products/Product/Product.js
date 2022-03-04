@@ -12,7 +12,7 @@ const Product = ({ addToCart, loadCurrentProduct, removeFromCart }) => {
     dispatch(deleteProduct(id));
   };
 
-  // console.log(products);
+  console.log(products);
   return (
     <>
       {products.map((product) => (
