@@ -81,9 +81,8 @@ const shopReducer = (state = INITIAL_STATE, { type, payload }) => {
     case actionTypes.CREATE_PRODUCT:
       return {
         ...state,
-        products: [...state.products, payload],
+        products: [payload, ...state.products],
       };
-
     default:
       return state;
   }

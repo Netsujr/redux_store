@@ -1,25 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { connect, useDispatch } from "react-redux";
-import { createProduct } from "../redux/Store/storeActions";
-import Image from 'react-random-image';
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 const Header = ({ cart }) => {
   const [cartCount, setCartCount] = useState(0);
-  const dispatch = useDispatch();
-  const ID = Date.now();
-  const price = Math.floor(Math.random() * 100);
-  const description = "Up! Get up! she screeched. Harry heard her walking toward the kitchen and then the sound of the frying pan being put on the stove. He rolled onto his back and tried to remember the dream he had been having.It had been a good one. There had been a flying motorcycle in it.He had a funny feeling hed had the same dream before.";
-  const randomImage = Image({
-    width: 250,
-    height: 250,
-    background: '#ccc',
-  });
-
-  const createProductHandler = (product) => {
-    dispatch(createProduct(product));
-  };
 
   useEffect(() => {
     let count = 0;
@@ -36,16 +21,8 @@ const Header = ({ cart }) => {
         <h3>Renato's Store</h3>
       </Link>
       <HeaderRight>
-        <NewProductContainer
-          onClick={() => createProductHandler({
-            id: ID,
-            title: "New Product",
-            description: description,
-            price: `${price}.99`,
-            image: randomImage.props.src,
-          })}
-        >
-          <h3>Add Product</h3>
+        <NewProductContainer>
+          <Link to='/addProduct'><h3>Add Product</h3></Link>
         </NewProductContainer>
         <Link to="/cart">
           <HeaderCart>
