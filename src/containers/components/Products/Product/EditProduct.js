@@ -11,21 +11,26 @@ const EditProduct = () => {
   let { id } = useParams();
   const currentProduct = products.find(product => product.id === parseInt(id));
   const dispatch = useDispatch();
-  const [product, setProduct] = useState(currentProduct);
+  const [selectedProduct, setSelectedProduct] = useState(currentProduct);
 
   useEffect(() => {
-    setProduct(currentProduct);
+    setSelectedProduct(currentProduct);
   }, [currentProduct, products]);
 
   const handleChange = (productKey, newValue) => {
-    setProduct({
-      ...product,
+    setSelectedProduct({
+      ...selectedProduct,
       [productKey]: newValue,
     });
   };
 
   const updateProduct = (id) => {
     dispatch(updateCurrentProduct(id));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    updateProduct(selectedProduct);
     navigate('/');
   };
 
@@ -33,14 +38,14 @@ const EditProduct = () => {
     <>
       <h1 style={{ marginLeft: '60px' }}>Edit Product</h1>
       <ProductContainer>
-        <form onSubmit={updateProduct} className="form">
-          <img src={product.image} alt={product.title} />
+        <form onSubmit={handleSubmit} className="form">
+          <img src={selectedProduct.image} alt={selectedProduct.title} />
           <ProductDetails>
             <label htmlFor="title">Title</label>
             <textarea
               type="text"
               wrap='soft'
-              value={product?.title ? product.title : ''}
+              value={selectedProduct?.title ? selectedProduct.title : ''}
               onChange={(e) => handleChange('title', e.target.value)}
               placeholder="Product Title"
               title='title'
@@ -49,7 +54,7 @@ const EditProduct = () => {
             <label htmlFor="description">Description</label>
             <textarea
               type="text"
-              value={product?.description ? product.description : ''}
+              value={selectedProduct?.description ? selectedProduct.description : ''}
               onChange={(e) => handleChange('description', e.target.value)}
               placeholder="Product Description"
               name='description'
@@ -57,7 +62,7 @@ const EditProduct = () => {
 
             <input
               type="number"
-              value={product?.price ? product.price : ''}
+              value={selectedProduct?.price ? selectedProduct.price : ''}
               onChange={(e) => handleChange('price', e.target.value)}
               placeholder="Price"
               name='price'

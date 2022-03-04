@@ -18,8 +18,17 @@ const Products = () => {
     dispatch(loadAllProducts((response.data)));
   };
 
+  // I think the state keeps resetting to the original array when I edit a product
+  // So I added this condition here to load the page only once,
+  // and then load the products from the API. Slightly dirty method though.
+  const loadPageOnce = () => {
+    if (products.length === 0) {
+      fetchProducts();
+    }
+  };
+
   useEffect(() => {
-    fetchProducts();
+    loadPageOnce();
   }, []);
 
   return (
