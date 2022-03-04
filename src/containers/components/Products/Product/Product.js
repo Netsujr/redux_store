@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { connect, useDispatch, useSelector } from "react-redux";
-import { loadCurrentProduct, addToCart, deleteProduct, updateCurrentProduct } from "../../../../redux/Store/storeActions";
+import { loadCurrentProduct, addToCart, deleteProduct } from "../../../../redux/Store/storeActions";
 
 const Product = ({ addToCart, loadCurrentProduct, removeFromCart }) => {
   const products = useSelector(state => state.store.products);
@@ -10,10 +10,6 @@ const Product = ({ addToCart, loadCurrentProduct, removeFromCart }) => {
 
   const removeProduct = (id) => {
     dispatch(deleteProduct(id));
-  };
-
-  const updateProduct = (id) => {
-    dispatch(updateCurrentProduct(id));
   };
 
   console.log(products);
@@ -45,15 +41,10 @@ const Product = ({ addToCart, loadCurrentProduct, removeFromCart }) => {
                   src="https://freesvg.org/img/trash.png"
                   alt="trash" />
               </button>
-              <button onClick={() => updateProduct({
-                id: product.id,
-                title: 'Product Changed!',
-                description: 'This product has been changed!',
-                price: '99.99',
-                image: product.image,
-              })}>
-                {/* {console.log(products)} */}
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Edit_icon_%28the_Noun_Project_30184%29.svg/1024px-Edit_icon_%28the_Noun_Project_30184%29.svg.png" alt="edit" />
+              <button>
+                <Link to={`product/edit/${product.id}`}>
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Edit_icon_%28the_Noun_Project_30184%29.svg/1024px-Edit_icon_%28the_Noun_Project_30184%29.svg.png" alt="edit" />
+                </Link>
               </button>
             </UpdateProduct>
           </Buttons>
@@ -67,7 +58,6 @@ const mapDispatchToProps = (dispatch) => {
   return {
     addToCart: (id) => dispatch(addToCart(id)),
     loadCurrentProduct: (product) => dispatch(loadCurrentProduct(product)),
-    // updateCurrentProduct: (product) => dispatch(updateCurrentProduct(product)),
   };
 };
 

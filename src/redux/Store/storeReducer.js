@@ -28,9 +28,11 @@ const shopReducer = (state = INITIAL_STATE, { type, payload }) => {
       };
 
     case actionTypes.UPDATE_CURRENT_PRODUCT:
-      const updatedProduct = payload
+      const updatedProduct = payload;
+      console.log(updatedProduct);
       const updatedProducts = state.products.map((product) => {
         if (product.id === updatedProduct.id) {
+          console.log(updatedProduct);
           return updatedProduct;
         }
         return product;
@@ -79,9 +81,8 @@ const shopReducer = (state = INITIAL_STATE, { type, payload }) => {
     case actionTypes.CREATE_PRODUCT:
       return {
         ...state,
-        products: [...state.products, payload],
+        products: [payload, ...state.products],
       };
-
     default:
       return state;
   }
