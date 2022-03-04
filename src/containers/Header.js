@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import AddProduct from "./components/Products/Product/AddProduct";
-import { connect, useDispatch } from "react-redux";
+import { connect } from "react-redux";
 
 const Header = ({ cart }) => {
   const [cartCount, setCartCount] = useState(0);

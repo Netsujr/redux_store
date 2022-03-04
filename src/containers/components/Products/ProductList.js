@@ -22,7 +22,7 @@ const Products = () => {
   // So I added this condition here to load the page only once,
   // and then load the products from the API. Slightly dirty method though.
   const loadPageOnce = () => {
-    if (products.length === 0) {
+    if (products.length <= 0) {
       fetchProducts();
     }
   };
@@ -50,6 +50,6 @@ const ProductsContainer = styled.div`
   width: 100%;
   margin-top: 2rem;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   align-items: center;
   `;

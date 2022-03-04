@@ -36,55 +36,55 @@ const EditProduct = () => {
 
   return (
     <>
-    <ProductContainer>
-    <TitleImage>
-    <h1>Edit Product</h1>
-    <img src={selectedProduct.image} alt={selectedProduct.title} />
-    </TitleImage>
-    <ProductDetails>
-    <form className="form">
-    <label htmlFor="title">Title</label>
-    <textarea
-    type="text"
-    wrap='soft'
-    value={selectedProduct?.title ? selectedProduct.title : ''}
-    onChange={(e) => handleChange('title', e.target.value)}
-    placeholder="Product Title"
-    title='title'
-    />
+      <ProductContainer>
+        <TitleImage>
+          <h1>Edit Product</h1>
+          <img src={selectedProduct.image} alt={selectedProduct.title} />
+        </TitleImage>
+        <ProductDetails>
+          <form className="form">
+            <label htmlFor="title">Title</label>
+            <textarea
+              type="text"
+              wrap='soft'
+              value={selectedProduct?.title ? selectedProduct.title : ''}
+              onChange={(e) => handleChange('title', e.target.value)}
+              placeholder="Product Title"
+              title='title'
+            />
 
-    <label htmlFor="description">Description</label>
-    <textarea
-    type="text"
-    value={selectedProduct?.description ? selectedProduct.description : ''}
-    onChange={(e) => handleChange('description', e.target.value)}
-    placeholder="Product Description"
-    name='description'
-    />
-    <label htmlFor="price">Price</label>
-    <input
-    type="number"
-    value={selectedProduct?.price ? selectedProduct.price : ''}
-    onChange={(e) => handleChange('price', e.target.value)}
-    placeholder="Price"
-    name='price'
-    />
-    </form>
-    <ButtonsContainer>
-    <button onClick={handleSubmit}>Submit</button>
-    <Link
-    style={{ color: 'green', fontWeight: 'bold', fontSize: '20px' }}
-    to='/' >Back</Link>
-    </ButtonsContainer>
-    </ProductDetails>
-    </ProductContainer>
+            <label htmlFor="description">Description</label>
+            <textarea
+              type="text"
+              value={selectedProduct?.description ? selectedProduct.description : ''}
+              onChange={(e) => handleChange('description', e.target.value)}
+              placeholder="Product Description"
+              name='description'
+            />
+            <label htmlFor="price">Price</label>
+            <input
+              type="number"
+              value={selectedProduct?.price ? selectedProduct.price : ''}
+              onChange={(e) => handleChange('price', e.target.value)}
+              placeholder="Price"
+              name='price'
+            />
+          </form>
+          <ButtonsContainer>
+            <button onClick={handleSubmit}>Submit</button>
+            <Link
+              style={{ color: 'green', fontWeight: 'bold', fontSize: '20px' }}
+              to='/' >Back</Link>
+          </ButtonsContainer>
+        </ProductDetails>
+      </ProductContainer>
     </>
-    );
-  };
+  );
+};
 
-  export default EditProduct;
+export default EditProduct;
 
-  const ProductContainer = styled.div`
+const ProductContainer = styled.div`
   width: 1100px;
   margin: 2rem auto;
   display: flex;
@@ -122,7 +122,7 @@ const EditProduct = () => {
   }
   `;
 
-  const TitleImage = styled.div`
+const TitleImage = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -139,7 +139,7 @@ const EditProduct = () => {
   }
   `;
 
-  const ProductDetails = styled.div`
+const ProductDetails = styled.div`
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -147,7 +147,7 @@ const EditProduct = () => {
   color: var(--secondary-color);
   `;
 
-  const ButtonsContainer = styled.div`
+const ButtonsContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
