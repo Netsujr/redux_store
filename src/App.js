@@ -10,7 +10,7 @@ import EditProduct from "./containers/components/Products/Product/EditProduct";
 import ThankYou from "./containers/components/ThankYou";
 import SingleProduct from "./containers/components/SingleProduct/SingleProduct";
 
-function App({ current }) {
+function App({ currentProduct }) {
 
   return (
     <Router>
@@ -24,7 +24,7 @@ function App({ current }) {
           <Route exact path="/thanks" element={<ThankYou />} />
           {/* App would crash sometimes when refreshing the page
           added this itinerary to stop that from happening */}
-          <Route exact path="/product/:id" element={!current ? (<Navigate to='/' />
+          <Route exact path="/product/:id" element={!currentProduct ? (<Navigate to='/' />
           ) : ( <SingleProduct /> )} />
         </Routes>
       </div>
@@ -34,7 +34,7 @@ function App({ current }) {
 
 const mapStateToProps = (state) => {
   return {
-    current: state.store.currentProduct,
+    currentProduct: state.store.currentProduct,
   };
 };
 
