@@ -32,9 +32,13 @@ const Products = () => {
   }, []);
 
   return (
-    <ProductsContainer>
-      <Product key={products.id} products={products} />
-    </ProductsContainer>
+    <>
+      <ProductsContainer>
+        {products.length <= 0 ? <h1>Loading Products...</h1> :
+          <Product key={products.id} products={products} />
+        }
+      </ProductsContainer>
+    </>
   );
 };
 
@@ -47,9 +51,9 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps)(Products);
 
 const ProductsContainer = styled.div`
-  width: 100%;
-  margin-top: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  `;
+width: 100%;
+margin-top: 2rem;
+display: flex;
+flex-direction: column;
+align-items: center;
+`;
