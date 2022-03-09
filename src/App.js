@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Navigate, BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import { connect } from "react-redux";
 import Header from "./containers/Header";
@@ -17,12 +17,15 @@ function App({ current }) {
       <div className="app">
         <Header />
         <Routes>
-          <Route exact path="/" element={<Products/>} />
-          <Route exact path="/cart" element={<Cart/>} />
-          <Route exact path="/addProduct" element={<AddProduct/>} />
-          <Route exact path="/product/edit/:id" element={<EditProduct/>} />
-          <Route exact path="/product/:id" element={<SingleProduct/>} />
-          <Route exact path="/thanks" element={<ThankYou/>} />
+          <Route exact path="/" element={<Products />} />
+          <Route exact path="/cart" element={<Cart />} />
+          <Route exact path="/addProduct" element={<AddProduct />} />
+          <Route exact path="/product/edit/:id" element={<EditProduct />} />
+          <Route exact path="/thanks" element={<ThankYou />} />
+          {/* App would crash sometimes when refreshing the page
+          added this itinerary to stop that from happening */}
+          <Route exact path="/product/:id" element={!current ? (<Navigate to='/' />
+          ) : ( <SingleProduct /> )} />
         </Routes>
       </div>
     </Router>
