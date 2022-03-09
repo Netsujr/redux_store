@@ -4,22 +4,22 @@ import { connect } from "react-redux";
 import { addToCart } from "../../../redux/Store/storeActions";
 import { Link } from "react-router-dom";
 
-const SingleProduct = ({ current, addToCart }) => {
+const SingleProduct = ({ currentProduct, addToCart }) => {
 
   return (
     <ProductContainer>
       <img
-        src={current.image}
-        alt={current.title}
+        src={currentProduct.image}
+        alt={currentProduct.title}
       />
 
       <ProductDetails>
-        <p>{current.title}</p>
-        <p>{current.description}</p>
-        <p>$ {current.price}</p>
+        <p>{currentProduct.title}</p>
+        <p>{currentProduct.description}</p>
+        <p>$ {currentProduct.price}</p>
 
         <button
-          onClick={() => addToCart(current.id)}
+          onClick={() => addToCart(currentProduct.id)}
         >Add To Cart
         </button>
         <Link style={{color: 'green', fontWeight: 'bold', fontSize: '20px'}} to="/">Back</Link>
@@ -30,7 +30,7 @@ const SingleProduct = ({ current, addToCart }) => {
 
 const mapStateToProps = (state) => {
   return {
-    current: state.store.currentProduct,
+    currentProduct: state.store.currentProduct,
   };
 };
 

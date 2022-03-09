@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Navigate, BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import { connect } from "react-redux";
 import Header from "./containers/Header";
@@ -10,19 +10,22 @@ import EditProduct from "./containers/components/Products/Product/EditProduct";
 import ThankYou from "./containers/components/ThankYou";
 import SingleProduct from "./containers/components/SingleProduct/SingleProduct";
 
-function App({ current }) {
+function App({ currentProduct }) {
 
   return (
     <Router>
       <div className="app">
         <Header />
         <Routes>
-          <Route exact path="/" element={<Products/>} />
-          <Route exact path="/cart" element={<Cart/>} />
-          <Route exact path="/addProduct" element={<AddProduct/>} />
-          <Route exact path="/product/edit/:id" element={<EditProduct/>} />
-          <Route exact path="/product/:id" element={<SingleProduct/>} />
-          <Route exact path="/thanks" element={<ThankYou/>} />
+          <Route exact path="/" element={<Products />} />
+          <Route exact path="/cart" element={<Cart />} />
+          <Route exact path="/addProduct" element={<AddProduct />} />
+          <Route exact path="/product/edit/:id" element={<EditProduct />} />
+          <Route exact path="/thanks" element={<ThankYou />} />
+          {/* App would crash sometimes when refreshing the page
+          added this itinerary to stop that from happening */}
+          <Route exact path="/product/:id" element={!currentProduct ? (<Navigate to='/' />
+          ) : ( <SingleProduct /> )} />
         </Routes>
       </div>
     </Router>
@@ -31,7 +34,7 @@ function App({ current }) {
 
 const mapStateToProps = (state) => {
   return {
-    current: state.store.currentProduct,
+    currentProduct: state.store.currentProduct,
   };
 };
 
